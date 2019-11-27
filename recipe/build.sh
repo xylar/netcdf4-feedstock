@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ -n "$mpi" && "$mpi" != "nompi" ]]; then
+  export CC=mpicc
+fi
+
 if [[ $(uname) == Darwin ]]; then
     export LDFLAGS="-headerpad_max_install_names $LDFLAGS"
 fi
